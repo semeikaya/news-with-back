@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   signIn: false,
@@ -8,14 +8,16 @@ const initialState = {
   token: localStorage.getItem("token"),
 };
 
+export const logOut = createAction("logout");
+
 export const createUser = createAsyncThunk(
   "users/create",
-  async ({ login, password }, thunkAPI) => {
+  async ({ name, login, password }, thunkAPI) => {
     try {
       const res = await fetch("http://localhost:4040/users/signup", {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ login, password }),
+        body: JSON.stringify({ name, login, password }),
       });
       const json = await res.json();
       if (json.error) {
@@ -56,11 +58,15 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(createUser.pending, (state, action) => {
+      .addCase(logOut, (state) => {
+        localStorage.removeItem("token");
+        state.token = localStorage.getItem("token");
+      })
+      .addCase(createUser.pending, (state) => {
         state.loading = true;
         state.signUp = true;
       })
-      .addCase(createUser.fulfilled, (state, action) => {
+      .addCase(createUser.fulfilled, (state) => {
         state.signUp = false;
       })
       .addCase(createUser.rejected, (state, action) => {
@@ -68,13 +74,13 @@ export const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(loginUser.pending, (state, action) => {
+      .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.signIn = true;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.signIn = false;
-        state.token = action.payload
+        state.token = action.payload;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.signIn = false;

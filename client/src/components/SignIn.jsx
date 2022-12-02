@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../features/authSlice";
@@ -11,8 +10,6 @@ const Signin = () => {
 
   const signIn = useSelector((state) => state.authSlice.signIn);
   const error = useSelector((state) => state.authSlice.error);
-  const token = useSelector((state) => state.authSlice.token);
-
 
   function handleLogin(e) {
     setLogin(e.target.value);
@@ -23,15 +20,17 @@ const Signin = () => {
   }
 
   function handleSubmit() {
-    dispatch(loginUser({ login, password }))
+    dispatch(loginUser({ login, password }));
   }
 
   return (
     <div className="main-signin">
       <div className="signin-box">
         <div className="error-signin">{error}</div>
+        <div className="login-txt">Login</div>
         <div className="login">
           <input
+            className="signintext"
             type="text"
             placeholder="Введите имя"
             value={login}
@@ -40,6 +39,7 @@ const Signin = () => {
         </div>
         <div>
           <input
+            className="signintext"
             type="password"
             placeholder="Введите пароль"
             value={password}

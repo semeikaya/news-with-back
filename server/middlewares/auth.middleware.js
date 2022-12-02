@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
@@ -18,6 +18,6 @@ module.exports = async (req, res) => {
     req.user = await jwt.verify(token, process.env.SECRET_JWT_KEY);
     next();
   } catch (e) {
-    return res.status(401).json({ error: "Неверный токен" });
+    return res.json(e.message)
   }
 };

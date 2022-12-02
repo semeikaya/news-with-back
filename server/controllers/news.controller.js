@@ -27,7 +27,6 @@ module.exports.newsController = {
   },
   addNews: async (req, res) => {
     const imageURL = 'http://localhost:4040/images/' + req.file.originalname;
-    console.log(req.file);
     const { title, text, commentsID, categoryID } = req.body;
     try {
       const news = await News.create({

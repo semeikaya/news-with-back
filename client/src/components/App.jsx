@@ -18,6 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/news/" element={<Layout />}>
+          <Route path="category/:id" element={<Category />} />
           <Route index element={<News />} />
           <Route path=":id" element={<SingleNews />} />
         </Route>

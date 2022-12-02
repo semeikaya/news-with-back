@@ -13,8 +13,6 @@ const News = () => {
     dispatch(getNews());
   }, [dispatch]);
 
-  console.log(load);
-
   if (load) {
     return <div className="load">Идет загрузка...</div>;
   }

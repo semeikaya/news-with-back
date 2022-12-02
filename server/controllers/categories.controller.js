@@ -9,13 +9,13 @@ module.exports.categoryContoller = {
       res.json(error);
     }
   },
-  addCategory: async (req, res) => {
-    try {
-      const { name } = req.body;
-      const categories = await Category.create({ name });
-      res.json(categories);
-    } catch (error) {
-      res.json(error);
-    }
-  },
+  // addCategory: async (req, res) => {
+  //   try {
+  //     const { name } = req.body;
+  //     const categories = await Category.create({ name });
+  //     res.json(categories);
+  //   } catch (error) {
+  //     res.json(error);
+  //   }
+  // },
 };

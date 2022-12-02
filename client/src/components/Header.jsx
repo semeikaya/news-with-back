@@ -12,7 +12,6 @@ const Header = () => {
     dispatch(getCategory());
   }, [dispatch]);
 
-
   return (
     <header className="head">
       <nav className="headnav">
