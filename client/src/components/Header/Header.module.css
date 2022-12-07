@@ -1,0 +1,53 @@
+.head {
+  display: flex;
+  position: fixed;
+  left: 15%;
+  top: 60px;
+}
+
+.headnav {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 20px;
+  font-size: 30px;
+  font-weight: 500;
+  border-radius: 10px 10px;
+  box-shadow: 1px 1px 10px 0px rgb(240, 238, 238);
+  width: 220px;
+}
+
+.headnav a {
+  text-decoration: none;
+  color: rgb(207, 205, 205);
+}
+
+.headnav button {
+  background: none;
+  border: none;
+  padding: 0px;
+}
+.homeBtn {
+  color: rgb(226, 17, 17) !important;
+}
+.categoryBtn {
+  font-size: 25px;
+  font-weight: 400 !important;
+  margin-bottom: 10px;
+}
+.categoryBtn a {
+  background-color: #ffffff;
+  padding: 0 15px 7px 10px;
+  color: rgb(0, 0, 0);
+  border-radius: 10px 10px;
+}
+
+.categoryBtn a:hover {
+  font-weight: 700;
+  color: #2365f3;
+}
+
+.categoryBtn a:focus {
+  font-weight: 700;
+  color: #2365f3;
+}

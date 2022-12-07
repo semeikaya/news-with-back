@@ -1,0 +1,148 @@
+.load {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.singleNews {
+  width: 50%;
+  margin-left: 33%;
+  box-shadow: 1px 1px 10px 0px rgb(240, 238, 238);
+  padding: 30px 30px 30px 30px;
+  background-color: white;
+}
+
+.commentsTitle {
+  font-size: 22px;
+  font-weight: 500;
+  width: 50%;
+  margin-left: 33%;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.blockInptBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-left: 33%;
+  padding: 10px 10px 10px 10px;
+  margin-top: 0px;
+}
+
+.nicknameComment {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dots:after {
+  content: "\2807";
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.comment {
+  padding: 0px 15px 5px 15px;
+}
+
+.removeCommentBlock {
+  display: inline-block;
+  position: absolute;
+  right: 2%;
+  top: 15%;
+}
+
+.removeComment {
+  background-color: white;
+  border-radius: 7px 7px;
+  border: 2px solid rgb(255, 255, 255);
+  font-weight: 500;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+}
+
+.blockComment {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  margin-left: 33%;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+  border-radius: 10px 10px;
+}
+
+.inputComment {
+  width: 87%;
+  border: 2px solid #ffffff;
+  border-radius: 30px 30px;
+  padding: 0 5% 0 5%;
+}
+.inputComment:hover {
+  width: 87%;
+  border: 2px solid #2356c4;
+  border-radius: 30px 30px;
+  padding: 0 5% 0 5%;
+}
+
+.inputComment:focus {
+  outline: none;
+  border: 2px solid #2356c4;
+}
+
+.sendBtn {
+  padding: 1em 1.1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 8px 15px rgb(214, 214, 214);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.sendBtn:hover {
+  background-color: #2356c4;
+  box-shadow: 0px 5px 20px rgb(214, 214, 214);
+  color: #fff;
+}
+
+.sendBtn:active {
+  transform: translateY(-1px);
+}
+
+.pleaseSignin {
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  margin-left: 33%;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  padding: 10px 10px 10px 10px;
+  margin-top: 20px;
+  border-radius: 10px 10px;
+  color: rgb(190, 32, 32);
+}
+
+.imgnews {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 30px;
+}
+
+.emptiness {
+  margin-top: 5%;
+}

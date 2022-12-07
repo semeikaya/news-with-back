@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../features/authSlice";
+import { loginUser } from "../../features/authSlice";
+import styles from "./Signin.module.css";
 
 const Signin = () => {
   const dispatch = useDispatch();
@@ -24,13 +25,13 @@ const Signin = () => {
   }
 
   return (
-    <div className="main-signin">
-      <div className="signin-box">
-        <div className="error-signin">{error}</div>
-        <div className="login-txt">Login</div>
-        <div className="login">
+    <div className={styles.mainSignin}>
+      <div className={styles.signinBox}>
+        <div className={styles.errorSignin}>{error}</div>
+        <div className={styles.loginTxt}>Login</div>
+        <div className={styles.login}>
           <input
-            className="signintext"
+            className={styles.signintext}
             type="text"
             placeholder="Введите имя"
             value={login}
@@ -39,17 +40,20 @@ const Signin = () => {
         </div>
         <div>
           <input
-            className="signintext"
+            className={styles.signintext}
             type="password"
             placeholder="Введите пароль"
             value={password}
             onChange={handlePassword}
           />
         </div>
-        <div className="login-btn">
+        <div className={styles.loginBtn}>
           <button onClick={handleSubmit} disabled={signIn}>
             Войти
           </button>
+        </div>
+        <div>
+          <a href="http://localhost:3000/signup">SignIn</a>
         </div>
       </div>
     </div>

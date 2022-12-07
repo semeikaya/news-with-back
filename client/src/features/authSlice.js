@@ -10,6 +10,7 @@ const initialState = {
 
 export const logOut = createAction("logout");
 
+
 export const createUser = createAsyncThunk(
   "users/create",
   async ({ name, login, password }, thunkAPI) => {
@@ -23,7 +24,7 @@ export const createUser = createAsyncThunk(
       if (json.error) {
         return thunkAPI.rejectWithValue(json.error);
       }
-
+      localStorage.setItem("token", json);
       return json;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -63,11 +64,14 @@ export const authSlice = createSlice({
         state.token = localStorage.getItem("token");
       })
       .addCase(createUser.pending, (state) => {
+        state.error = null;
         state.loading = true;
         state.signUp = true;
       })
-      .addCase(createUser.fulfilled, (state) => {
+      .addCase(createUser.fulfilled, (state, action) => {
+        state.error = null;
         state.signUp = false;
+        state.token = action.payload;
       })
       .addCase(createUser.rejected, (state, action) => {
         state.signUp = false;

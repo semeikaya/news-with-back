@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Category from "./CategoryNews";
-import Layout from "./Layout";
-import News from "./News";
-import Signin from "./SignIn";
-import Signup from "./Signup";
-import SingleNews from "./SingleNews";
+import Category from "../pages/CategoryNews/CategoryNews";
+import Layout from "../pages/Layout/Layout";
+import News from "../pages/News/News";
+import Signin from "../pages/SignIn/SignIn";
+import Signup from "../pages/SignUp/SignUp";
+import SingleNews from "../pages/SingleNews/SingleNews";
 
 function App() {
   const token = useSelector((state) => state.authSlice.token);
@@ -22,7 +22,7 @@ function App() {
           <Route index element={<News />} />
           <Route path=":id" element={<SingleNews />} />
         </Route>
-        <Route path="*" element={<Navigate to="/news" replace />} />
+        <Route path="*" element={<Navigate to="/signin" replace />} />
       </Routes>
     );
   }

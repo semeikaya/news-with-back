@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getNewByCategory } from "../features/newsSlice";
+import { getNewByCategory } from "../../features/newsSlice";
+import styles from "./CategoryNews.module.css";
 
 const Category = () => {
   const { id } = useParams();
@@ -21,26 +22,26 @@ const Category = () => {
   }, [dispatch, id]);
 
   if (load) {
-    return <div className="load">Идет загрузка...</div>;
+    return <div className={styles.load}>Идет загрузка...</div>;
   }
 
   if (error) {
-    return <div className="load">{error}</div>;
+    return <div className={styles.error}>{error}</div>;
   }
 
   return (
-    <ol>
+    <ol className={styles.list}>
       {/* <div className="headcategory">{category.name}</div> */}
 
       {category.map((item) => (
-        <div className="headcategory">{item.name}</div>
+        <div className={styles.headCategory}>{item.name}</div>
       ))}
 
       <hr />
       {news.map((news) => {
         return (
-          <div key={news._id} className="news">
-            <div className="title">
+          <div key={news._id} className={styles.news}>
+            <div className={styles.title}>
               <Link to={`/news/${news._id}`}>{news.title}</Link>
             </div>
           </div>

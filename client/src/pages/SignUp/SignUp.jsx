@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "../features/authSlice";
+import { createUser } from "../../features/authSlice";
+import styles from "./Signup.module.css";
+import { useEffect } from "react";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-
   const signUp = useSelector((state) => state.authSlice.signUp);
   const error = useSelector((state) => state.authSlice.error);
 
@@ -28,23 +29,26 @@ const Signup = () => {
     dispatch(createUser({ name, login, password }));
   }
 
+useEffect(()=> {})
+
+
   return (
-    <div className="main-signin">
-      <div className="signin-box">
-        <div className="error-signin">{error}</div>
-        <div className="login-txt">SignUp</div>
-        <div className="login">
+    <div className={styles.mainSignin}>
+      <div className={styles.signinBox}>
+        <div className={styles.errorSignin}>{error}</div>
+        <div className={styles.loginTxt}>SignUp</div>
+        <div className={styles.login}>
           <input
-            className="signintext"
+            className={styles.signintext}
             type="text"
             placeholder="Ваше имя"
             value={name}
             onChange={handleName}
           />
         </div>
-        <div className="login">
+        <div className={styles.login}>
           <input
-            className="signintext"
+            className={styles.signintext}
             type="text"
             placeholder="Придумайте логин"
             value={login}
@@ -53,17 +57,25 @@ const Signup = () => {
         </div>
         <div>
           <input
-            className="signintext"
+            className={styles.signintext}
             type="password"
             placeholder="Придумайте пароль"
             value={password}
             onChange={handlePassword}
           />
         </div>
-        <div className="login-btn">
-          <button onClick={handleSubmit} disabled={signUp}>
+        <div className={styles.loginBtn}>
+          <button
+            to={error ? null : "/signin"}
+            className={styles.loginBtn}
+            onClick={handleSubmit}
+            disabled={signUp}
+          >
             Зарегистрироваться
           </button>
+        </div>
+        <div>
+          <a href="http://localhost:3000/signin">SignIn</a>
         </div>
       </div>
     </div>

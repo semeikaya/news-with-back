@@ -3,20 +3,25 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
+  getNewsById,
+} from "../../features/newsSlice";
+
+import {
   addComment,
   getComment,
-  getNewsById,
   modalWindow,
   removeComment,
-} from "../features/newsSlice";
+} from "../../features/commentsSlice";
+
+import styles from "./SingleNews.module.css";
 
 const SingleNews = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const news = useSelector((state) => state.newsSlice.oneNews);
-  const comments = useSelector((state) => state.newsSlice.comments);
+  const comments = useSelector((state) => state.commentsSlice.comments);
   const [input, setInput] = useState("");
-  const modal = useSelector((state) => state.newsSlice.modal);
+  const modal = useSelector((state) => state.commentsSlice.modal);
   const token = useSelector((state) => state.authSlice.token);
 
   useEffect(() => {
@@ -25,7 +30,7 @@ const SingleNews = () => {
   }, [dispatch, id]);
 
   if (!news || !comments) {
-    return <div className="load">Идет загрузка...</div>;
+    return <div className={styles.load}>Идет загрузка...</div>;
   }
 
   function handleSubmit() {
@@ -47,13 +52,13 @@ const SingleNews = () => {
 
   return (
     <>
-      <div className="singlenews">
+      <div className={styles.singleNews}>
         <h1>{news.title}</h1>
         <hr />
         <p>{news.text} </p>
         <hr />
       </div>
-      <div className="commentstitle">Комментарии</div>
+      <div className={styles.commentsTitle}>Комментарии</div>
 
       {token ? (
         <form
@@ -61,53 +66,53 @@ const SingleNews = () => {
             e.preventDefault();
             handleSubmit();
           }}
-          className="block-inpt-btn"
+          className={styles.blockInptBtn}
           action=""
         >
           <input
             value={input}
             onChange={hadleChange}
             type="text"
-            className="inputcomment"
+            className={styles.inputComment}
             placeholder="Оставить комментарий"
           />
-          <button type="submit" disabled={!input} className="send-btn">
+          <button type="submit" disabled={!input} className={styles.sendBtn}>
             Send
           </button>
         </form>
       ) : (
-        <div className="please-signin">
+        <div className={styles.pleaseSignin}>
           Пожалуйста войдите в свою учетную запись, чтобы можно было оставлять
           комментарии!
         </div>
       )}
       {comments.map((comment) => {
         return (
-          <div key={comment._id} className="blockcomment">
-            <div className="nicknamecomment">
+          <div key={comment._id} className={styles.blockComment}>
+            <div className={styles.nicknameComment}>
               {comment.nameUser}
               <div
-                className="dots"
+                className={styles.dots}
                 onClick={(e) => {
                   e.stopPropagation();
                   handleModal(comment._id);
                 }}
               ></div>
             </div>
-            <div className="comment">{comment.text}</div>
+            <div className={styles.comment}>{comment.text}</div>
             {modal === comment._id ? (
               <div
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
-                className="remove-comment-block"
+                className={styles.removeCommentBlock}
               >
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     handleRemove(comment._id);
                   }}
-                  className="remove-comment"
+                  className={styles.removeComment}
                 >
                   Remove
                 </button>
@@ -116,7 +121,7 @@ const SingleNews = () => {
           </div>
         );
       })}
-      <div className="emptiness"></div>
+      <div className={styles.emptiness}></div>
     </>
   );
 };

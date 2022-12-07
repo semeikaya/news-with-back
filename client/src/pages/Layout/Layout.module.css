@@ -1,0 +1,39 @@
+.mainBody {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: auto;
+}
+.logout {
+  background-color: rgb(245, 152, 46);
+  display: inline-block;
+  position: absolute;
+  position: fixed;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px 5px;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  right: 11%;
+  top: 62px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.signUpBtn {
+  background-color: rgb(245, 152, 46);
+  display: inline-block;
+  position: absolute;
+  position: fixed;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px 5px;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  right: 5%;
+  top: 62px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.main {
+  padding: 60px 0px 0px 0px;
+  margin: auto;
+}
