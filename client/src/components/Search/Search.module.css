@@ -1,0 +1,85 @@
+.inputBox {
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  position: fixed;
+  top: 80px;
+  width: 17%;
+  height: 35px;
+  margin-left: 77%;
+  border: none;
+  border-radius: 35px 35px;
+  box-shadow: 1px 1px 10px 0px rgb(192, 190, 190);
+  display: flex;
+  justify-content: space-between;
+}
+input {
+  width: 88%;
+  height: 100%;
+  border: none;
+  border-radius: 30px 30px;
+  padding: 0 0px 0 40px;
+  outline: none;
+  background: none;
+}
+svg {
+  position: absolute;
+  opacity: 0.2 !important;
+  left: 8px;
+  top: 6px;
+}
+
+.logout {
+  background-color: rgb(39, 121, 214);
+  height: 35px;
+  width: 45px;
+  padding: 0;
+  border-radius: 30px 30px;
+  box-shadow: 1px 0px 0px 0px rgb(214, 214, 214);
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid rgb(255, 255, 255);
+  line-height: 30px;
+}
+.logout:hover {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(39, 121, 214);
+  color: white;
+}
+.autocomplete {
+  max-height: 150px;
+  height: auto;
+  overflow: auto;
+  position: absolute;
+  background-color: white;
+  box-shadow: 1px 0px 0px 0px rgb(214, 214, 214);
+  width: 100%;
+  top: 50px;
+  border-radius: 10px 10px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  padding: 0px 0px 0px 0px;
+}
+.autocomplete_box {
+  cursor: pointer;
+  padding-left: 15px;
+  padding-left: 15px;
+  padding-right: 0px;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
+  cursor: pointer;
+}
+.autocomplete_box:hover {
+  border-radius: 4px 4px;
+  background-color: rgba(34, 151, 230, 0.986);
+}
+.autocomplete_item{
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+}
+.autocomplete_item:hover{
+  color: rgb(255, 255, 255);
+}

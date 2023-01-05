@@ -7,12 +7,15 @@ const initialState = {
   error: null,
   category: [],
   newsByCategory: [],
+  autocompleteNews: [],
+  pages: [],
 };
 
-export const getNews = createAsyncThunk("news/fetch", async (_, thunkAPI) => {
+export const getNews = createAsyncThunk("news/fetch", async (id, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4040/news");
+    const res = await fetch(`http://localhost:4040/news/pages/${!id ? 1 : id}`);
     const news = await res.json();
+    console.log(news);
     if (news.error) {
       return thunkAPI.rejectWithValue(news.error);
     } else {
@@ -45,9 +48,7 @@ export const getCategory = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:4040/categories`);
-
       const news = await res.json();
-
       if (news.error) {
         return thunkAPI.rejectWithValue(news.error);
       }
@@ -68,7 +69,45 @@ export const getNewByCategory = createAsyncThunk(
         return thunkAPI.rejectWithValue(news.error);
       }
       return news;
-    } catch (error) {}
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const getNewBySearch = createAsyncThunk(
+  "news/seacrhid",
+  async (id, thunkAPI) => {
+    try {
+      const res = await fetch(`http://localhost:4040/news/search/${id}`);
+      const news = await res.json();
+      if (news.error) {
+        return thunkAPI.rejectWithValue(news.error);
+      }
+      return news;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const autocompleteNews = createAsyncThunk(
+  "news/autocompleteid",
+  async (searchValue, thunkAPI) => {
+    console.log(searchValue);
+    try {
+      const res = await fetch(
+        `http://localhost:4040/news/autocomplete/${searchValue}`
+      );
+      const news = await res.json();
+
+      if (news.error) {
+        return thunkAPI.rejectWithValue(news.error);
+      }
+      return news;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
   }
 );
 
@@ -83,8 +122,10 @@ export const newsSlice = createSlice({
         state.loading = true;
       })
       .addCase(getNews.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.loading = false;
-        state.news = action.payload;
+        state.pages = action.payload.pageNumbers;
+        state.news = action.payload.currentNews;
       })
       .addCase(getNews.rejected, (state, action) => {
         state.loading = false;
@@ -120,6 +161,28 @@ export const newsSlice = createSlice({
       .addCase(getNewByCategory.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(getNewBySearch.pending, (state, action) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(getNewBySearch.fulfilled, (state, action) => {
+        state.loading = false;
+        state.newsByCategory = action.payload;
+      })
+      .addCase(getNewBySearch.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(autocompleteNews.pending, (state, action) => {
+        state.error = false;
+      })
+      .addCase(autocompleteNews.fulfilled, (state, action) => {
+        state.loading = false;
+        state.autocompleteNews = action.payload;
+      })
+      .addCase(autocompleteNews.rejected, (state, action) => {
+        state.loading = false;
       });
   },
 });

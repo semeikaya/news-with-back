@@ -9,18 +9,23 @@
 }
 
 .singleNews {
-  width: 50%;
-  margin-left: 33%;
+  width: 650px;
+  margin-left: 0%;
   box-shadow: 1px 1px 10px 0px rgb(240, 238, 238);
   padding: 30px 30px 30px 30px;
   background-color: white;
 }
 
+.list {
+  margin-left: 8%;
+  padding: 0;
+}
+
 .commentsTitle {
   font-size: 22px;
   font-weight: 500;
-  width: 50%;
-  margin-left: 33%;
+  width: 650px;
+  margin-left: 0%;
   box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
@@ -30,9 +35,10 @@
 
 .blockInptBtn {
   display: flex;
+  height: 60px;
   justify-content: space-between;
-  width: 50%;
-  margin-left: 33%;
+  width: 650px;
+  margin-left: 0%;
   padding: 10px 10px 10px 10px;
   margin-top: 0px;
 }
@@ -71,8 +77,8 @@
 .blockComment {
   position: relative;
   background-color: rgb(255, 255, 255);
-  width: 50%;
-  margin-left: 33%;
+  width: 650px;
+  margin-left: 0%;
   box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
@@ -81,18 +87,22 @@
 
 .inputComment {
   width: 87%;
+  height: 100%;
   border: 2px solid #ffffff;
   border-radius: 30px 30px;
   padding: 0 5% 0 5%;
+  background-color: white;
 }
 .inputComment:hover {
   width: 87%;
+  height: 100%;
   border: 2px solid #2356c4;
   border-radius: 30px 30px;
   padding: 0 5% 0 5%;
 }
 
 .inputComment:focus {
+  height: 100%;
   outline: none;
   border: 2px solid #2356c4;
 }
@@ -127,8 +137,8 @@
   font-weight: 500;
   font-size: 20px;
   background-color: rgb(255, 255, 255);
-  width: 50%;
-  margin-left: 33%;
+  width: 650px;
+  margin-left: 0%;
   box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
   padding: 10px 10px 10px 10px;
   margin-top: 20px;
@@ -137,7 +147,7 @@
 }
 
 .imgnews {
-  width: 100%;
+  width: 650px;
   text-align: center;
   vertical-align: middle;
   margin-top: 30px;

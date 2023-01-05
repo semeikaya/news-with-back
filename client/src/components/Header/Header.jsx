@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCategory } from "../../features/newsSlice";
-import styles from './Header.module.css'
+import Logout from "../Logout/Logout";
+import styles from "./Header.module.css";
 
 const Header = () => {
   const categories = useSelector((state) => state.newsSlice.category);
+  const token = useSelector((state) => state.authSlice.token);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +31,20 @@ const Header = () => {
           );
         })}
       </nav>
+      <div className={styles.btnLogout}>
+        {token ? (
+          <Logout styles={styles} />
+        ) : (
+          <>
+            <a className={styles.logout} href="http://localhost:3000/signin">
+              SignIn
+            </a>
+            <a className={styles.signUpBtn} href="http://localhost:3000/signup">
+              SignUp
+            </a>
+          </>
+        )}
+      </div>
     </header>
   );
 };

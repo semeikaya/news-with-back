@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Pagination from "../../components/Pagination/Pagination";
 import { getNews } from "../../features/newsSlice";
-import styles from "./News.module.css";
+import styles from "./PaginationNews.module.css";
 
-const News = () => {
+const PaginationNews = () => {
   const news = useSelector((state) => state.newsSlice.news);
   const load = useSelector((state) => state.newsSlice.loading);
   const error = useSelector((state) => state.newsSlice.error);
@@ -44,4 +44,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default PaginationNews;

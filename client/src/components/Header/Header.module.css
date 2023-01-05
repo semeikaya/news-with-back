@@ -1,8 +1,9 @@
 .head {
   display: flex;
   position: fixed;
-  left: 15%;
+  left: 8%;
   top: 60px;
+  flex-direction: column;
 }
 
 .headnav {
@@ -50,4 +51,36 @@
 .categoryBtn a:focus {
   font-weight: 700;
   color: #2365f3;
+}
+
+.logout {
+  background-color: rgb(245, 152, 46);
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px 5px;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  left: 16%;
+  top: 50%;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.signUpBtn {
+  background-color: rgb(245, 152, 46);
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px 5px;
+  box-shadow: 1px 1px 10px 0px rgb(214, 214, 214);
+  left: 10.5%;
+  top: 50%;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btnLogout {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }

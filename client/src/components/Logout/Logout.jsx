@@ -1,9 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../features/authSlice";
-import styles from './Logout.module.css'
 
-const Logout = () => {
+const Logout = ({styles}) => {
   const dispatch = useDispatch();
 
   function logout() {

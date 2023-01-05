@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  getNewsById,
-} from "../../features/newsSlice";
+import { getNewsById } from "../../features/newsSlice";
 
 import {
   addComment,
@@ -51,7 +49,7 @@ const SingleNews = () => {
   }
 
   return (
-    <>
+    <div className={styles.list}>
       <div className={styles.singleNews}>
         <h1>{news.title}</h1>
         <hr />
@@ -122,7 +120,7 @@ const SingleNews = () => {
         );
       })}
       <div className={styles.emptiness}></div>
-    </>
+    </div>
   );
 };
 
